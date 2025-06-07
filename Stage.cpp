@@ -16,6 +16,7 @@ namespace
 	CsvReaderYZ r;
 	Snake* snake = nullptr;
 	Food* food = nullptr;
+	const float MOVETIME{ 10000000 };
 	
 }
 
@@ -34,6 +35,14 @@ void DrawScore()
 	SetFontSize(oldsize);
 
 }
+
+void SetMoveTimer(float timer)
+{
+	if (snake)
+		snake->initTimer = timer;
+}
+
+
 
 bool CheckHitWall(vec3 pos)
 {
@@ -54,7 +63,7 @@ Stage::Stage()
 	snake = nullptr; //スネークを作成(TODO #3)
 	food = nullptr;  //フード作成(TODO #4)
 	MakeStage();
-
+	SetMoveTimer(MOVETIME);//ときを動かす（TODO ＃３．５）
 }
 
 
@@ -93,8 +102,9 @@ Stage::~Stage()
 
 void Stage::Update()
 {
-	if (!snake)
+	if (!snake || !food)
 		return;
+
 	ivec3 pos = snake->GetBody()[0].GetPosition();
 	//壁との当たり判定(TODO #9)
 	if (false)
@@ -120,13 +130,15 @@ void Stage::Update()
 	//スネークのヘッドとフードの座標が一致したら！
 	if (snake->GetHeadPos() == food->GetPosition()) {
 		//ヘビも伸ばそう(TODO #6)
+
 		food->SpawnRandom(); // 新しい場所に出現
 		//スコアの加算(TODO #8)
+
 	}
 
 	snake->Update();
 	
-	//フードのアップデート（回るだけ）
+	//フードのアップデート（回るだけ）(TODO # 11)
 	//food->Update();
 }
 
@@ -134,13 +146,13 @@ void Stage::Draw()
 {
 	//ステージの描画（TODO #2）
 
-
-	if (!snake)
+	if (!snake || !food)
 		return;
-	snake->Draw();
-	food->Draw();
+	//snake->Draw();
+	//food->Draw();
 
 	//スコアの描画(TODO #7)
+
 	
 }
 

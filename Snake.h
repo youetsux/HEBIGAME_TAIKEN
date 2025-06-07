@@ -20,7 +20,7 @@ public:
     bool IsAlive() const { return isAlive; }
     glm::ivec3 GetHeadPos();
     const std::vector<SnakeBody>& GetBody() const { return snakeBody; }
-
+    float initTimer;
 protected:
 private:
     int hHead;
@@ -31,5 +31,6 @@ private:
     Direction nextDir_;              // 次の進行方向
     bool growPending_;               // 成長フラグ
     bool isAlive;
+
 };
 

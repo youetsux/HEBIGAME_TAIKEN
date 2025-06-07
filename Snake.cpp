@@ -37,11 +37,12 @@ Snake::Snake()
     snakeBody.push_back(glm::ivec3(1, 0, 0));
     hHead = MV1LoadModel("Assets/sheadb.mv1");
     hBody = MV1LoadModel("Assets/sbody.mv1");
+    initTimer = SNAKE_MOVE_TIMER;
 }
 
 void Snake::Update()
 {
-    static float moveTimer = SNAKE_MOVE_TIMER;
+    static float moveTimer = initTimer;
     //printfDx("Timer = %f : DeltaTime = %f\n", moveTimer, Time::DeltaTime());
     if (!isAlive) return;
    
@@ -61,7 +62,7 @@ void Snake::Update()
                 break;
             }
         }
-        moveTimer = SNAKE_MOVE_TIMER + moveTimer;
+        moveTimer = initTimer + moveTimer;
     }
     moveTimer = moveTimer - Time::DeltaTime();
 }
