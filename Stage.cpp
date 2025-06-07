@@ -19,6 +19,8 @@ namespace
 	
 }
 
+using namespace Score;
+
 void DrawScore()
 {
 	int oldsize = GetFontSize();
@@ -47,9 +49,10 @@ Stage::Stage()
 			STAGE_HEIGHT,
 			std::vector<int>(STAGE_WIDTH, 0)))
 {
+	//バックグラウンドカラーの設定(TODO #1)
 	SetBackgroundColor(132, 255, 255);
-	snake = new Snake();
-	food = new Food();
+	snake = nullptr; //スネークを作成(TODO #3)
+	food = nullptr;  //フード作成(TODO #4)
 	MakeStage();
 
 }
@@ -74,7 +77,11 @@ void Stage::MakeStage()
 			}
 		}
 	}
-	food->SpawnRandom();
+
+	//フードが存在したらスポーン！(TODO #4.5)
+	if (food) {
+		//food->SpawnRandom();
+	}
 }
 
 
@@ -86,35 +93,55 @@ Stage::~Stage()
 
 void Stage::Update()
 {
+	if (!snake)
+		return;
 	ivec3 pos = snake->GetBody()[0].GetPosition();
-	if (CheckHitWall(pos))
+	//壁との当たり判定(TODO #9)
+	if (false)
+	{
 		snake->SetDeath();
+	}
 
 	if (!snake->IsAlive())
 	{
-		SceneManager::ChangeScene("RESULT");
+		//SceneManager::ChangeScene();
 	}
 
-	if (Input::IsKeyDown(KEY_INPUT_UP))  snake->SetDirection(UP);
-	if (Input::IsKeyDown(KEY_INPUT_DOWN))  snake->SetDirection(DOWN);
-	if (Input::IsKeyDown(KEY_INPUT_LEFT))  snake->SetDirection(LEFT);
-	if (Input::IsKeyDown(KEY_INPUT_RIGHT)) snake->SetDirection(RIGHT);
-	if (Input::IsKeyDown(KEY_INPUT_SPACE)) snake->Grow();
-	if (snake->GetBody()[0].GetPosition() == food->GetPosition()) {
-		snake->Grow();
+	//キーボード入力の処理をする(TODO #5)
+	if (Input::IsKeyDown(KEY_INPUT_UP))  
+		snake->SetDirection(NONE);
+	if (Input::IsKeyDown(KEY_INPUT_DOWN))  
+		snake->SetDirection(NONE);
+	if (Input::IsKeyDown(KEY_INPUT_LEFT))  
+		snake->SetDirection(NONE);
+	if (Input::IsKeyDown(KEY_INPUT_RIGHT)) 
+		snake->SetDirection(NONE);
+
+	//スネークのヘッドとフードの座標が一致したら！
+	if (snake->GetHeadPos() == food->GetPosition()) {
+		//ヘビも伸ばそう(TODO #6)
 		food->SpawnRandom(); // 新しい場所に出現
-		Score::AddScore();
+		//スコアの加算(TODO #8)
 	}
+
 	snake->Update();
-	food->Update();
+	
+	//フードのアップデート（回るだけ）
+	//food->Update();
 }
 
 void Stage::Draw()
 {
-	DrawStageGrid();
+	//ステージの描画（TODO #2）
+
+
+	if (!snake)
+		return;
 	snake->Draw();
 	food->Draw();
-	DrawScore();
+
+	//スコアの描画(TODO #7)
+	
 }
 
 

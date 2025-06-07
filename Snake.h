@@ -18,6 +18,7 @@ public:
     void SetDeath() { isAlive = false; }
     bool IsOnBody(const ivec3& pos);
     bool IsAlive() const { return isAlive; }
+    glm::ivec3 GetHeadPos();
     const std::vector<SnakeBody>& GetBody() const { return snakeBody; }
 
 protected:

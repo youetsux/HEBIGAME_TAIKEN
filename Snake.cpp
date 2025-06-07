@@ -131,3 +131,8 @@ bool Snake::IsOnBody(const ivec3& pos)
     return false;
 }
 
+glm::ivec3 Snake::GetHeadPos()
+{
+    return(snakeBody[0].GetPosition());
+}
+
