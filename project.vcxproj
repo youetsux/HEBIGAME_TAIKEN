@@ -95,7 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\DxLib;</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp23</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\DxLib;</AdditionalLibraryDirectories>
@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Food.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -148,19 +149,28 @@
     <ClInclude Include="ImGui\imstb_rectpack.h" />
     <ClInclude Include="ImGui\imstb_textedit.h" />
     <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Library\App.h" />
     <ClInclude Include="Library\GameObject.h" />
     <ClInclude Include="Library\ObjectManager.h" />
     <ClInclude Include="Library\SceneBase.h" />
     <ClInclude Include="Library\SceneManager.h" />
     <ClInclude Include="Library\Time.h" />
+    <ClInclude Include="NcsvReader.h" />
+    <ClInclude Include="Score.h" />
+    <ClInclude Include="sharedTypes.h" />
+    <ClInclude Include="Snake.h" />
+    <ClInclude Include="SnakeBody.h" />
     <ClInclude Include="Source\BootScene.h" />
+    <ClInclude Include="Source\ResultScene.h" />
     <ClInclude Include="Source\Screen.h" />
     <ClInclude Include="Source\PlayScene.h" />
     <ClInclude Include="Source\SceneFactory.h" />
     <ClInclude Include="Source\TitleScene.h" />
+    <ClInclude Include="Stage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Food.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
     <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
@@ -169,15 +179,22 @@
     <ClCompile Include="ImGui\imgui_ja_gryph_ranges.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Library\App.cpp" />
     <ClCompile Include="Library\main.cpp" />
     <ClCompile Include="Library\ObjectManager.cpp" />
     <ClCompile Include="Library\SceneManager.cpp" />
     <ClCompile Include="Library\Time.cpp" />
+    <ClCompile Include="NcsvReader.cpp" />
+    <ClCompile Include="Score.cpp" />
+    <ClCompile Include="Snake.cpp" />
+    <ClCompile Include="SnakeBody.cpp" />
     <ClCompile Include="Source\BootScene.cpp" />
     <ClCompile Include="Source\PlayScene.cpp" />
+    <ClCompile Include="Source\ResultScene.cpp" />
     <ClCompile Include="Source\SceneFactory.cpp" />
     <ClCompile Include="Source\TitleScene.cpp" />
+    <ClCompile Include="Stage.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

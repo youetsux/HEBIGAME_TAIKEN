@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\SceneFactory.cpp" />
     <ClCompile Include="Library\App.cpp">
       <Filter>Library</Filter>
     </ClCompile>
@@ -50,10 +49,33 @@
     <ClCompile Include="Library\Time.cpp">
       <Filter>Library</Filter>
     </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>PlayScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneFactory.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>PlayScene</Filter>
+    </ClCompile>
+    <ClCompile Include="NcsvReader.cpp">
+      <Filter>PlayScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>PlayScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SnakeBody.cpp">
+      <Filter>PlayScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ResultScene.cpp">
+      <Filter>ResultScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Screen.h" />
-    <ClInclude Include="Source\SceneFactory.h" />
     <ClInclude Include="Library\App.h">
       <Filter>Library</Filter>
     </ClInclude>
@@ -111,6 +133,37 @@
     <ClInclude Include="Library\Time.h">
       <Filter>Library</Filter>
     </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneFactory.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Screen.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="NcsvReader.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="sharedTypes.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SnakeBody.h">
+      <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ResultScene.h">
+      <Filter>ResultScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Library">
@@ -127,6 +180,9 @@
     </Filter>
     <Filter Include="ImGui">
       <UniqueIdentifier>{a717257b-67b3-4bfa-834c-1e34032b33b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResultScene">
+      <UniqueIdentifier>{c26191df-0bb2-4e74-9708-f721663b3cb5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

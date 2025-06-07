@@ -1,0 +1,34 @@
+#pragma once
+#include "Library/GameObject.h"
+#include "SnakeBody.h"
+#include <vector>
+
+using namespace glm;
+
+class Snake
+{
+public:
+    Snake();
+    void Update();
+    void Draw();
+
+    void SetDirection(Direction dir);
+    void Move();
+    void Grow();
+    void SetDeath() { isAlive = false; }
+    bool IsOnBody(const ivec3& pos);
+    bool IsAlive() const { return isAlive; }
+    const std::vector<SnakeBody>& GetBody() const { return snakeBody; }
+
+protected:
+private:
+    int hHead;
+    int hBody;
+ 
+    std::vector<SnakeBody> snakeBody;
+    Direction currentDir_;           // 現在の進行方向
+    Direction nextDir_;              // 次の進行方向
+    bool growPending_;               // 成長フラグ
+    bool isAlive;
+};
+
